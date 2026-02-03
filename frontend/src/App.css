@@ -1,0 +1,83 @@
+/* App background */
+#root {
+  min-height: 100vh;
+  background: radial-gradient(ellipse at top,
+      #1a1a1a 0%,
+      #0e0e0e 55%,
+      #080808 100%);
+  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Title */
+.app-title {
+  font-family: "Homemade Apple", cursive;
+  font-size: 52px;
+  margin-bottom: 6px;
+}
+
+/* Subtitle */
+.app-subtitle {
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-bottom: 28px;
+  position: relative;
+  display: inline-block;
+}
+
+/* Animated underline (subtle) */
+.app-subtitle::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  width: 55%;
+  height: 1px;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.5),
+      transparent);
+  transform: translateX(-50%);
+  animation: subtitlePulse 3.5s ease-in-out infinite;
+}
+
+@keyframes subtitlePulse {
+  0% {
+    opacity: 0.25;
+    width: 40%;
+  }
+
+  50% {
+    opacity: 0.8;
+    width: 70%;
+  }
+
+  100% {
+    opacity: 0.25;
+    width: 40%;
+  }
+}
+
+@media (max-width: 768px) {
+  .player-container {
+    padding: 16px;
+    margin: 20px auto;
+  }
+
+  .app-title {
+    font-size: 36px;
+  }
+
+  .app-subtitle {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+  }
+
+  .stem-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+}
